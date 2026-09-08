@@ -1,0 +1,54 @@
+<footer class="bg-dark text-white py-5 mt-auto">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-lg-4 col-md-6">
+                <h5 class="text-white fw-bold mb-3 d-flex align-items-center">
+                    <i class="bi bi-droplet-fill text-danger me-2"></i> BloodBank
+                </h5>
+                <p class="text-white-50">
+                    Connecting life-saving blood donors with those in urgent need. Every drop counts. Join our mission to ensure no one suffers from a lack of blood.
+                </p>
+            </div>
+            
+            <div class="col-lg-2 col-md-6">
+                <h6 class="text-white fw-bold mb-3">Quick Links</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="{% url 'core:home' %}" class="text-white-50 text-decoration-none">Home</a></li>
+                    <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
+                    <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <h6 class="text-white fw-bold mb-3">Get Involved</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="{% url 'accounts:register_donor' %}" class="text-white-50 text-decoration-none">Register as Donor</a></li>
+                    <li class="mb-2"><a href="{% url 'accounts:register_customer' %}" class="text-white-50 text-decoration-none">Register as Hospital</a></li>
+                    <li class="mb-2"><a href="{% url 'accounts:login' %}" class="text-white-50 text-decoration-none">Login</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <h6 class="text-white fw-bold mb-3">Contact Info</h6>
+                <ul class="list-unstyled text-white-50 mb-0">
+                    <li class="mb-2"><i class="bi bi-geo-alt me-2 text-danger"></i> 123 Healthcare Ave, City</li>
+                    <li class="mb-2"><i class="bi bi-telephone me-2 text-danger"></i> +1 234 567 8900</li>
+                    <li class="mb-2"><i class="bi bi-envelope me-2 text-danger"></i> support@bloodbank.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr class="border-secondary my-4">
+        
+        <div class="row align-items-center text-center text-md-start">
+            <div class="col-md-6 text-white-50 small">
+                &copy; {% now "Y" %} Blood Bank Management System. All rights reserved.
+            </div>
+            <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                <a href="#" class="text-white-50 me-3"><i class="bi bi-facebook fs-5"></i></a>
+                <a href="#" class="text-white-50 me-3"><i class="bi bi-twitter-x fs-5"></i></a>
+                <a href="#" class="text-white-50"><i class="bi bi-instagram fs-5"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>

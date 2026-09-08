@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}BloodBank - Donate Blood, Save Lives{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="row align-items-center my-5 py-5 rounded-4 shadow-sm text-white" style="background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%);">
+    <div class="col-lg-7 p-5">
+        <h1 class="display-4 fw-bold mb-4">Every Drop of Blood is a Gift of Life</h1>
+        <p class="lead mb-4">Join our community of life-savers. Whether you want to donate blood or request it for someone in need, we make the process simple, fast, and transparent.</p>
+        <div class="d-grid gap-3 d-md-flex justify-content-md-start">
+            <a href="{% url 'accounts:register_donor' %}" class="btn btn-light btn-lg px-4 fw-bold text-danger rounded-pill shadow">Become a Donor</a>
+            <a href="{% url 'accounts:register_customer' %}" class="btn btn-outline-light btn-lg px-4 rounded-pill">Hospital / Clinic Registration</a>
+        </div>
+    </div>
+    <div class="col-lg-5 d-none d-lg-flex justify-content-center">
+        <!-- We use an icon instead of an image since we don't have one uploaded yet -->
+        <i class="bi bi-heart-pulse-fill" style="font-size: 12rem; color: rgba(255,255,255,0.8);"></i>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+    <div class="col">
+        <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 transition-hover" style="transition: transform 0.3s ease;">
+            <div class="card-body">
+                <div class="d-inline-block bg-danger bg-opacity-10 rounded-circle p-4 mb-4">
+                    <i class="bi bi-search text-danger fs-1"></i>
+                </div>
+                <h3 class="h4 fw-bold">Find Blood Quickly</h3>
+                <p class="text-muted mb-0">Search our real-time inventory to find the specific blood group you need across multiple verified banks.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 transition-hover" style="transition: transform 0.3s ease;">
+            <div class="card-body">
+                <div class="d-inline-block bg-primary bg-opacity-10 rounded-circle p-4 mb-4">
+                    <i class="bi bi-shield-check text-primary fs-1"></i>
+                </div>
+                <h3 class="h4 fw-bold">Verified Donors</h3>
+                <p class="text-muted mb-0">All our donors undergo a strict verification process to ensure the highest safety and quality standards.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 transition-hover" style="transition: transform 0.3s ease;">
+            <div class="card-body">
+                <div class="d-inline-block bg-success bg-opacity-10 rounded-circle p-4 mb-4">
+                    <i class="bi bi-activity text-success fs-1"></i>
+                </div>
+                <h3 class="h4 fw-bold">Track Requests</h3>
+                <p class="text-muted mb-0">Stay updated on the status of your blood requests and donations through your personalized dashboard.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="p-5 text-center bg-white rounded-4 shadow-sm mb-5 border-top border-danger border-5">
+    <div class="container py-4">
+        <h2 class="fw-bold mb-3">Ready to Make a Difference?</h2>
+        <p class="text-muted mb-4 mx-auto" style="max-width: 600px;">A single donation can save up to three lives. Register today and join our mission to ensure no one suffers from a lack of blood.</p>
+        <a href="{% url 'accounts:login' %}" class="btn btn-danger btn-lg rounded-pill px-5">Login to Your Account</a>
+    </div>
+</div>
+
+<style>
+    .transition-hover:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+    }
+</style>
+{% endblock %}

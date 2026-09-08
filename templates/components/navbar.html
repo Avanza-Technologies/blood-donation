@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand text-danger fw-bold d-flex align-items-center" href="{% url 'core:home' %}">
+            <i class="bi bi-droplet-fill me-2 fs-4"></i>
+            BloodBank
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-medium" aria-current="page" href="{% url 'core:home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-medium" href="#">About Us</a>
+                </li>
+                
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item dropdown ms-2">
+                        <a class="nav-link dropdown-toggle btn btn-light rounded-pill px-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle me-1"></i> {{ request.user.email }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2" aria-labelledby="navbarDropdown">
+                            {% if request.user.is_superuser or request.user.is_staff %}
+                                <li><a class="dropdown-item" href="{% url 'dashboard:admin_dashboard' %}"><i class="bi bi-speedometer2 me-2 text-primary"></i> Admin Dashboard</a></li>
+                            {% elif request.user.user_type == 'DONOR' %}
+                                <li><a class="dropdown-item" href="{% url 'dashboard:donor_dashboard' %}"><i class="bi bi-person-heart me-2 text-danger"></i> Donor Dashboard</a></li>
+                            {% elif request.user.user_type == 'CUSTOMER' %}
+                                <li><a class="dropdown-item" href="{% url 'dashboard:customer_dashboard' %}"><i class="bi bi-bag-plus me-2 text-success"></i> Customer Dashboard</a></li>
+                            {% endif %}
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="{% url 'accounts:logout' %}"><i class="bi bi-box-arrow-right me-2"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-outline-danger px-4 rounded-pill fw-medium" href="{% url 'accounts:login' %}">Login</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="btn btn-danger px-4 rounded-pill fw-medium shadow-sm" href="{% url 'accounts:register_donor' %}">Register as Donor</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

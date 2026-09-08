@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - Blood Bank Management System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h3 class="text-center mb-4">Login</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.non_field_errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="mb-3">
+                        <label for="id_username" class="form-label">Email address</label>
+                        <input type="email" name="username" class="form-control" id="id_username" required autofocus>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="id_password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="id_password" required>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                    </div>
+                </form>
+                
+                <hr class="my-4">
+                
+                <div class="text-center text-muted">
+                    <p>Don't have an account?</p>
+                    <a href="{% url 'accounts:register_donor' %}" class="btn btn-outline-danger btn-sm me-2">Register as Donor</a>
+                    <a href="{% url 'accounts:register_customer' %}" class="btn btn-outline-primary btn-sm">Register as Customer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
